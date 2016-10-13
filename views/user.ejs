@@ -1,0 +1,49 @@
+<!Doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"
+          name="viewport">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <title>手机视界</title>
+    <link rel='stylesheet' type="text/css" href='<%=rootPath%>/stylesheets/user.css'/>
+</head>
+<body>
+<% include header.ejs %>
+<div class="user">
+    <img src="http://img.v.zjol.com.cn/default.png">
+    <p class="name"><%=data.user.user_name%></p>
+</div>
+<div class="main">
+    <div class="list">
+        <div class="list-title">
+            <i class="i-title blue"></i>
+            <span class="list-span">发布的视频</span>
+        </div>
+        <div class="list-content">
+            <%for(var i in data.datas){%>
+            <div class="subline">
+                <a href="<%=rootPath%>/video/<%=data.datas[i].id%>">
+                    <div class="fl">
+                        <img src="<%=data.datas[i].cover%>">
+                    </div>
+                    <div class="subline-width fr">
+                        <span class="subline-title"><i class="i-playTime"></i><%=data.datas[i].title%></span>
+                    <span class="subline-date"><span
+                            class="news-playTime"><%=data.datas[i].updateTime%></span></span>
+                    </div>
+                </a>
+            </div>
+            <%}%>
+        </div>
+    </div>
+</div>
+
+</div>
+<%include footer.ejs%>
+</body>
+
+
+</html>

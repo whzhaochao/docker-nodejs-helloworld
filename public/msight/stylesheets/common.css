@@ -1,0 +1,221 @@
+
+body {
+    font-size: 0.35rem;
+    font-family: "Microsoft Yahei", "微软雅黑", "Tahoma", "SimSun";
+    color: #000;
+    background-color:#f0f0f0;
+    margin:0 auto;
+    max-width:736px;
+}
+
+a {
+    text-decoration: none;
+    /*清除移动端网站点击a标签时闪现的边框或遮罩层（CSS）*/
+    -webkit-tap-highlight-color:rgba(255,0,0,0);
+}
+
+#banner{
+    width: 100%;
+    height: 8.9rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.swiper-slide{
+    position: relative;
+    text-align: left;
+}
+
+#banner img{
+    width:100%;
+    height: 8.9rem;
+}
+
+.swiper-gradient{
+    width:100%;
+    height:3rem;
+    background: -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.7));
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+}
+
+.swiper-title{
+    width:60%;
+    line-height:1.2rem;
+    font-size: 0.9rem;
+    color: #fff;
+    font-weight: 100;
+    padding: 11px 45px 11px 15px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.banner-title{
+    width:80%;
+    line-height:1.2rem;
+    font-size: 0.9rem;
+    color: #fff;
+    font-weight: 100;
+    padding: 11px 45px 11px 15px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+
+.pagination{
+    position: absolute;
+    z-index: 20;
+    bottom: 0.7rem !important;
+    width: 3.3rem;
+    text-align: right;
+    right: 1rem !important;
+}
+
+/*@media screen and (min-width:640px) {*/
+    /*#banner img {*/
+        /*width: 640px;*/
+    /*}*/
+/*}*/
+
+.fl{
+    float:left;
+}
+
+.fr{
+    float:right;
+}
+
+
+/*查看更多*/
+.padded-container{
+    clear: both;
+    padding-top:1.5rem;
+    padding-bottom:2.5rem;
+}
+
+.show-more-button{
+    display: block;
+    background: linear-gradient(to bottom,#009bff 0,#0092f2 100%);
+    color: #FFF;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 12px 0;
+    position: relative;
+}
+
+.show-more-span{
+    font-size:0.7rem;
+}
+
+.blue{
+    background-color: #109cf5;
+}
+
+.red{
+    background-color: #ec1a21;
+}
+
+.purple{
+    background-color:#932298;
+}
+
+.green{
+    background-color:#01a652;
+}
+
+.yellow{
+    background-color:#f29f3a;
+}
+
+/*重点推荐*/
+.relative-recommend{
+    width:100%;
+}
+
+.relative-recommend-title{
+    font-size:0.75rem;
+    color:#f99d32;
+    display:block;
+    height:1.5rem;
+    line-height:1.5rem;
+}
+
+.relative-recommend-content{
+    font-size:0.75rem;
+    color:#fff;
+    text-align:center;
+    margin-bottom:1.3rem;
+}
+
+
+.white{
+    color:#fff;
+}
+
+.main{
+    width:90%;
+    margin:0 auto;
+    overflow:hidden;
+}
+
+.content{
+    width:100%;
+    margin:0.35rem 0;
+}
+
+.subline{
+    width:100%;
+    border-bottom: 1px solid #E5E5E5;
+    padding:0.75rem 0;
+    clear:both;
+}
+
+.subline a{
+    display: inline-block;
+}
+
+.subline-width{
+    width:7.7rem;
+    padding-top:0.2rem;
+}
+
+.subline img{
+    width:6.025rem;
+    height:3.389rem;
+    margin-right:0.5rem;
+}
+
+.subline-title{
+    height: 1.7rem;
+    line-height:0.9rem;
+    overflow: hidden;
+    display: block;
+    font-size: 0.7rem;
+}
+
+.subline-date{
+    position: relative;
+    margin-top:0.75rem;
+    display:block;
+}
+
+.i-playTime{
+    float:left;
+    width:0.53rem;
+    height:0.85rem;
+    margin-right:0.2rem;
+    background:url("../images/icon/play.png") no-repeat center;
+    background-size:0.5rem 0.5rem;
+}
+
+.news-playTime{
+    font-size:0.5rem;
+    color:#808080;
+}

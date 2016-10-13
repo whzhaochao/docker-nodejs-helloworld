@@ -1,0 +1,58 @@
+<!Doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>【视频即时报】-手机视界(m.v.zjol.com.cn)-浙江免费新闻视频</title>
+    <meta name="keywords" content="即时报,视频即时报,最新浙江新闻,手机视界,浙江视界">
+    <meta name="description" content="视频即时报是浙江视界手机视界的子频道,实时更新浙江省最新的新闻视频">
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"
+          name="viewport">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="apple-mobile-web-app-title" content="手机视界">
+    <link rel='stylesheet' type="text/css" href='<%=rootPath%>/stylesheets/videoTime.css'/>
+</head>
+<body>
+<% include header.ejs %>
+<div id="banner">
+    <a title="<%-data[0].title%>" href="<%=rootPath%>/video/<%=data[0].url%>">
+        <img src="<%=data[0].cover%>" alt="<%=data[0].title%>" title="<%-data[0].title%>">
+    </a>
+    <span class="banner-title"><%-data[0].title%></span>
+</div>
+<div class="main">
+    <div class="content" id="content">
+        <% for(var i=1;i < data.length;i++){%>
+        <div class="subline">
+            <a href="<%=rootPath%>/video/<%=data[i].url%>">
+                <div class="fl">
+                    <img src="<%=data[i].cover%>">
+                </div>
+                <div class="subline-width fr">
+                    <span class="subline-title"><i class="i-playTime"></i><%-data[i].title%></span>
+                    <span class="subline-date"><span class="news-playTime"><%=data[i].updateTime%></span></span>
+                </div>
+            </a>
+        </div>
+        <%}%>
+    </div>
+
+    <div class="padded-container">
+        <a href="javascript:;" class="show-more-button videoTime-more-button">
+            <span class="show-more-span">查看更多</span>
+        </a>
+    </div>
+    <div class="go-top"><img src='<%=rootPath%>/images/icon/btn_top.png'></div>
+    <%include subFoot.ejs%>
+</div>
+<div class="footer-1">
+    <div class="pd-1">
+        <p><img src="<%=rootPath%>/images/icon/computer-black.png">电脑版</p>
+        <p>Copyright © 1999-2016 Zjol. All Rights Reserved</p>
+        <p>浙江在线版权所有</p>
+    </div>
+</div>
+</body>
+</html>
+
+

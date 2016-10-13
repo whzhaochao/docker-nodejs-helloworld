@@ -1,0 +1,14 @@
+<%for(var i =1;i < data.length;i++){%>
+<div class="subline">
+    <a href="/video/<%=data[i].id%>">
+        <div class="fl">
+            <img src="<%=data[i].cover%>">
+        </div>
+        <div class="subline-width fr">
+            <span class="subline-title"><i class="i-playTime"></i><%=data[i].title%></span>
+                    <span class="subline-date"><span
+                            class="news-playTime"><%=data[i].updateTime%></span></span>
+        </div>
+    </a>
+</div>
+<%}%>

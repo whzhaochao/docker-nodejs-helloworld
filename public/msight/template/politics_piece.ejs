@@ -1,0 +1,13 @@
+<%for(var i=1;i < data.politicList.length;i++){%>
+<div class="subline">
+    <a href="/video/<%=data.politicList[i].url%>">
+        <div class="fl">
+            <img src="<%=data.politicList[i].cover%>">
+        </div>
+        <div class="subline-width fr">
+            <span class="subline-title"><i class="i-playTime"></i><%=data.politicList[i].title%></span>
+                    <span class="subline-date"><span class="news-playTime"><%=data.politicList[i].updateTime%></span></span>
+        </div>
+    </a>
+</div>
+<%}%>

@@ -1,0 +1,71 @@
+<!Doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"
+          name="viewport">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <title>手机视界</title>
+    <link rel='stylesheet' type="text/css" href='<%=rootPath%>/stylesheets/detail.css'/>
+</head>
+<body>
+<% include header.ejs %>
+<div id="playerDiv">
+    <iframe scrolling='no' height='100%' width='100%' frameborder=0 src='http://cdn.v.zjol.com.cn/index.html?id=<%=data.video.id%>&autoPlay=1' allowfullscreen></iframe>
+</div>
+
+<div class="main">
+    <div class="user">
+        <a href="<%=rootPath%>/user?user_id=<%=data.video.user_id%>"><img src="http://img.v.zjol.com.cn/default.png"></a>
+        <span class="userName"><%=data.video.user_name%></span>
+        <span class="playTime">播放: <%=data.video.play_time%> <span class="fr"><%=data.video.updateTime%></span></span>
+    </div>
+    <div class="introduce">
+        <h1><%-data.video.name%></h1>
+        <p>
+            <%-data.video.intro%>
+        </p>
+
+    </div>
+    <div class="tag">
+        <div class="tag-title">
+            <i class="i-title blue"></i>
+            <span class="tag-span">标签</span>
+        </div>
+        <div class="tag-content">
+            <%for(var i in tags){%>
+                <span><a href="#"><%=tags[i]%></a></span>
+            <%}%>
+        </div>
+    </div>
+    <div class="relate">
+        <div class="relate-title">
+            <i class="i-title blue"></i>
+            <span class="relate-span">相关推荐</span>
+        </div>
+        <div class="relate-content">
+            <%for(var i in data.recVideos){%>
+            <div class="subline">
+                <a href="<%=rootPath%>/video/<%=data.recVideos[i].id%>">
+                    <div class="fl">
+                        <img src="<%=data.recVideos[i].frontCover%>">
+                    </div>
+                    <div class="subline-width fr">
+                        <span class="subline-title"><i class="i-playTime"></i><%-data.recVideos[i].name%></span>
+                    <span class="subline-date"><span
+                            class="news-playTime"><%=data.recVideos[i].createDate.substring(0,10)%></span></span>
+                    </div>
+                </a>
+            </div>
+            <%}%>
+        </div>
+    </div>
+
+</div>
+<%include footer.ejs%>
+</body>
+
+
+</html>

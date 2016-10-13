@@ -1,0 +1,6 @@
+{
+	"host": "http://localhost:8080",
+	"port": 8080,
+	"api":"m.v.zjol.com.cn",
+	"rootPath":"/msight"
+}

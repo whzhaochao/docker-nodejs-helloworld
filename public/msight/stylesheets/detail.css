@@ -1,0 +1,132 @@
+#head_nav {
+    display: none;
+}
+
+#playerDiv {
+    width: 100%;
+    height: 9rem;
+    padding-top: 2.5rem;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+}
+
+
+.user {
+    width: 100%;
+    color: #999;
+    overflow: hidden;
+    padding: 0.5rem 0;
+}
+
+.user img {
+    width: 2rem;
+    height: 2rem;
+    float: left;
+    border: 2px solid rgba(0, 0, 0, .35);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.userName {
+    display: block;
+    width: 80%;
+    height:1.2rem;
+    line-height: 1.2rem;
+    overflow: hidden;
+    color:#000;
+}
+
+.playTime {
+    width: 90%;
+    display: block;
+}
+
+.introduce{
+    width:100%;
+    height:auto;
+    overflow:hidden;
+    padding-bottom:1.1rem;
+    border-bottom:1px solid #999;
+}
+
+.introduce h1{
+    font-size:0.72rem;
+    padding-bottom:0.3rem;
+}
+
+.introduce p{
+    line-height:1rem;
+    font-size:0.55rem;
+}
+
+.tag{
+    width:100%;
+}
+
+.tag-title{
+    width: 100%;
+    height: 1.2rem;
+    line-height: 0.9rem;
+    margin-top: 0.8rem;
+}
+
+.i-title{
+    float: left;
+    width: 0.225rem;
+    height: 0.95rem;
+    margin-right: 0.5rem;
+}
+
+.tag-span{
+    font-size: 0.9rem;
+    color: #333;
+}
+
+
+.tag-content{
+    width:100%;
+    margin-top:0.5rem;
+    line-height:2rem;
+    padding-left:0.5rem;
+    padding-bottom:1.1rem;
+    border-bottom:1px solid #999;
+}
+
+
+.tag-content span{
+    display:inline-block;
+    width:27%;
+    height:1rem;
+    line-height:1rem;
+    margin-right:0.5rem;
+    border:1px solid #75a6c4;
+    border-radius: 10px;
+    text-align:center;
+}
+
+.relate{
+    width:100%;
+}
+
+.relate-title{
+    width: 100%;
+    height: 1.2rem;
+    line-height: 0.9rem;
+    margin-top: 0.8rem;
+}
+
+
+.relate-span{
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.relate-content{
+    width: 100%;
+    margin: 0.35rem 0;
+}
+

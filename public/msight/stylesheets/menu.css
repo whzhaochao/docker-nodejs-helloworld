@@ -1,0 +1,145 @@
+.all{
+    max-width:736px;
+    margin:0 auto;
+    position:relative;
+}
+
+.bg {
+    background-color: #212121;
+    position: absolute;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    -moz-opacity: 0.8;
+}
+
+.menu {
+    position: absolute;
+    width: 13.7rem;
+    height: auto;
+    z-index: 100;
+    background-color: #1e1e1e;
+    border-radius: 5px;
+    display:none;
+}
+
+.menu-top {
+    height: 0.95rem;
+    background-color: #fff;
+    position: relative;
+    border-radius: 3px 3px 0 0;
+}
+
+.close {
+    position:absolute;
+    width:1.4rem;
+    height:1.4rem;
+    top:10px;
+    right:10px;
+    color: #fff;
+    z-index:100;
+    background:url("../images/icon/close.png") no-repeat center;
+    background-size:0.7rem 0.7rem;
+    display:none;
+}
+
+.menu-nav-item {
+    position: relative;
+}
+
+
+.nav-item-link {
+    font-size: 0.65rem;
+    color: #fff;
+    display:block;
+    height: 2.25rem;
+    line-height: 2.25rem;
+    padding:0 0.7rem;
+    border-bottom:1px solid #1a1a1a;
+    border-left: solid 3px #242424;
+}
+
+.nav-item-link img{
+    width:0.85rem;
+    height: 0.5rem;
+    position:absolute;
+    margin-top:-0.25rem;
+    top:50%;
+    right:0.8rem;
+    display:block;
+}
+
+.menu-bottom {
+    height: 0.5rem;
+    background-color: #fff;
+    border-radius: 0 0 3px 3px;
+}
+
+.updown{
+    transform:rotate(0deg);
+    transition: all .3s linear;
+}
+
+.open{
+    transform:rotate(180deg);
+}
+
+
+.has-sub-menu{
+    position:relative;
+}
+
+.sub-nav-menu{
+    width:100%;
+    background-color:#262626;
+    height:0;
+    max-height:0;
+    overflow:hidden;
+}
+
+.active{
+    height:auto;
+    max-height:1000px;
+}
+
+.sub-nav-item{
+    width:33%;
+    height:2.5rem;
+    float:left;
+}
+
+
+.sub-nav-item-link{
+    display:inline-block;
+    width:100%;
+    height:100%;
+    line-height:2.5rem;
+    text-align:center;
+    font-size:0.65rem;
+    color:#fff;
+}
+
+.nav-index{
+    border-left-color:#009afc;
+}
+
+.nav-politics{
+    border-left-color:#ec1b24;
+}
+
+.nav-original{
+    border-left-color:#91268e;
+}
+
+.nav-videoTime{
+    border-left-color:#00ab4d;
+}
+
+.nav-category{
+    border-left-color:#f89d33;
+}

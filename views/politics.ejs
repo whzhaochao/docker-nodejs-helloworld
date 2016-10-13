@@ -1,0 +1,100 @@
+<!Doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>【时政要闻】-手机视界(m.v.zjol.com.cn)-浙江免费新闻视频</title>
+    <meta name="keywords" content="时政要闻,浙江时政,杭州时政,手机视界,浙江视界">
+    <meta name="description" content="时政要闻是浙江视界手机视界的子频道,免费提供最新的浙江省、杭州市时政新闻视频">
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"
+          name="viewport">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="apple-mobile-web-app-title" content="手机视界">
+    <link rel='stylesheet' type="text/css" href='<%=rootPath%>/stylesheets/politics.css'/>
+</head>
+<body>
+<% include header.ejs %>
+<div id="banner">
+    <a title="<%-data.politicList[0].title%>" href="<%if(data.politicList[0].url.length>10){%><%=data.politicList[0].url%><%}else{%><%=rootPath%>/video/<%=data.politicList[0].url%><%}%>">
+        <img src="<%=data.politicList[0].cover%>" alt="<%-data.politicList[0].title%>"
+             title="<%=data.politicList[0].title%>">
+    </a>
+    <span class="banner-title"><%-data.politicList[0].title%></span>
+</div>
+<div class="main">
+    <div class="content" id="content">
+        <%for(var i=1;i < data.politicList.length;i++){%>
+        <div class="subline">
+            <a href="<%if(data.politicList[i].url.length>10){%><%=data.politicList[i].url%><%}else{%><%=rootPath%>/video/<%=data.politicList[i].url%><%}%>">
+                <div class="fl">
+                    <img src="<%=data.politicList[i].cover%>">
+                </div>
+                <div class="subline-width fr">
+                    <span class="subline-title"><i class="i-playTime"></i><%-data.politicList[i].title%></span>
+                    <span class="subline-date"><span
+                            class="news-playTime"><%=data.politicList[i].updateTime%></span></span>
+                </div>
+            </a>
+        </div>
+        <%}%>
+    </div>
+
+    <div class="padded-container">
+        <a href="javascript:;" class="show-more-button politics-more-button">
+            <span class="show-more-span">查看更多</span>
+        </a>
+    </div>
+    <div class="go-top"><img src='<%=rootPath%>/images/icon/btn_top.png'></div>
+</div>
+
+<div class="black">
+    <div class="main">
+        <div class="other-model">
+            <div class="title">
+                <i class="i-title purple"></i><span class="black-type">热门专题</span>
+            </div>
+            <%for(var i in data.hotRec){%>
+            <div class="content">
+                <a href="<%if(data.hotRec[i].url.length>10){%><%=data.hotRec[i].url%><%}else{%><%=rootPath%>/video/<%=data.hotRec[i].url%><%}%>">
+                    <img class="main-img" src="<%=data.hotRec[i].cover%>">
+                    <span class="sub-title"><%=data.hotRec[i].title%></span>
+                </a>
+            </div>
+            <%}%>
+        </div>
+
+        <div class="padded-container" >
+            <!--<a href="#" class="show-more-button">-->
+                <!--<span class="show-more-span">查看更多</span>-->
+            <!--</a>-->
+        </div>
+
+        <div class="other-model">
+            <div class="title">
+                <i class="i-title purple"></i><span class="black-type">活动推荐</span>
+            </div>
+            <%for(var i in data.hostSubject){%>
+            <div class="content">
+                <a href="<%if(data.hostSubject[i].url.length>10){%><%=data.hostSubject[i].url%><%}else{%><%=rootPath%>/video/<%=data.hostSubject[i].url%><%}%>">
+                    <img class="main-img" src="<%=data.hostSubject[i].cover%>">
+                    <span class="sub-title"><%=data.hostSubject[i].title%></span>
+                </a>
+            </div>
+            <%}%>
+        </div>
+
+        <div class="padded-container">
+            <!--<a href="#" class="show-more-button">-->
+                <!--<span class="show-more-span">查看更多</span>-->
+            <!--</a>-->
+        </div>
+
+        <%include subFoot.ejs%>
+    </div>
+</div>
+<%include footer.ejs%>
+
+</body>
+</html>
+
+

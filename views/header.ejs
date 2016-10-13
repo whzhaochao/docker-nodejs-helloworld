@@ -1,0 +1,31 @@
+<link rel="stylesheet" type="text/css" href="<%=rootPath%>/stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="<%=rootPath%>/stylesheets/header.css">
+<link rel="stylesheet" type="text/css" href="<%=rootPath%>/stylesheets/footer.css">
+<link rel="stylesheet" type="text/css" href="<%=rootPath%>/stylesheets/common.css">
+<link rel="stylesheet" type="text/css" href="<%=rootPath%>/stylesheets/menu.css">
+
+<script type="text/javascript" src="<%=rootPath%>/javascripts/adaption.js"></script>
+<script type="text/javascript" src="<%=rootPath%>/javascripts/jquery.js"></script>
+<script type="text/javascript" src="<%=rootPath%>/javascripts/menu.js"></script>
+<script type="text/javascript" src="<%=rootPath%>/javascripts/ejs.js"></script>
+<script type="text/javascript" src="<%=rootPath%>/javascripts/ajaxLoad.js"></script>
+
+<header>
+    <%include menu.ejs%>
+    <div class="top">
+        <a class="type" href="javascript:;" title="热门分类" ></a>
+        <a class="logo" href="<%=rootPath%>/index" title="手机视界" style="margin-left: -1.7rem;"></a>
+        <a class="search" href="<%=rootPath%>/search" title="搜索" style="display:none"></a>
+    </div>
+    <nav class="nav-wrap" id="head_nav">
+        <ul class="subsection-nav">
+            <li><a href="<%=rootPath%>/index" title="首页" class="<%if(typeof(index) != 'undefined'){%><%=index%><%}%>">首页</a></li>
+            <li><a href="<%=rootPath%>/politics" title="时政要闻" class="<%if(typeof(politics) != 'undefined'){%><%=politics%><%}%>">时政要闻</a></li>
+            <li><a href="<%=rootPath%>/original" title="原创出品" class="<%if(typeof(original) != 'undefined'){%><%=original%><%}%>">原创出品</a></li>
+            <li><a href="<%=rootPath%>/videoTime" title="视频即时报" class="<%if(typeof(videoTime) != 'undefined'){%><%=videoTime%><%}%>">视频即时报</a></li>
+            <li><a href="<%=rootPath%>/category/0" title="热门分类" class="<%if(typeof(category) != 'undefined'){%><%=category%><%}%>">热门分类</a></li>
+        </ul>
+    </nav>
+</header>
+
+

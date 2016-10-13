@@ -1,0 +1,110 @@
+<!Doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"
+          name="viewport">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <title>搜索-手机视界</title>
+    <link rel='stylesheet' type="text/css" href='/stylesheets/search.css'/>
+
+    <script type="text/javascript" src="/javascripts/adaption.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.js"></script>
+    <script type="text/javascript" src="/javascripts/search.js"></script>
+    <script type="text/javascript" src="/javascripts/iscroll.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.imagesloaded.js"></script>
+</head>
+<body>
+<div class="for-search">
+    <form method="post" action="<%=rootPath%>/searchSubmit" onSubmit="return checkForm(this)">
+        <div class="header">
+            <div class="search-cancel"></div>
+            <div class="search-txt">
+                <input type="hidden" name="sort" value="<%if(typeof(sort) != 'undefined'){%><%=sort%><%}%>" id="sort">
+                <input type="hidden" name="qType" value="<%if(typeof(qType) != 'undefined'){%><%=qType%><%}%>" id="qType">
+                <input type="hidden" name="typeName" value="<%if(typeof(typeName) != 'undefined'){%><%=typeName%><%}%>" id="typeName">
+                <input type="text" name="name" id="searchInput" placeholder="请输入搜索内容" value="<%if(typeof(name) != 'undefined'){%><%=name%><%}%>" autocomplete="off" class="search-input">
+                <i class="search-del" style="display:<%if(typeof(status) != 'undefined'){%>block<%}%>"></i>
+                <input type="submit" class="search-btn" id="searchSubmit" value="">
+            </div>
+        </div>
+    </form>
+    <%if(typeof(data) != 'undefined' && typeof(data) != null && (typeof(name) != 'undefined')){%>
+    <div id="searchList">
+        <div class="tab">
+            <div class="sub-tab">
+                <ul>
+                    <li class="tab-tip" id="related">
+                        <a href="javascript:;"><span class="<%=related%>">相关度</span></a>
+                    </li>
+                    <li class="tab-tip most" id="new">
+                        <a href="javascript:;"><span class="<%=create_date%>">最新发布</span></a>
+                    </li>
+                    <li class="tab-tip most" id="times">
+                        <a href="javascript:;"><span class="<%=play_time%>">最多播放</span></a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="filter-handle" id="filterHandle">
+                <span class="m-ico" id="m-ico"></span>
+                <span class=" " id="m-word">筛选</span>
+            </div>
+        </div>
+        <div class="filter">
+
+            <div class="filter-item">
+                <%for(var i in data.typeNames){%>
+                    <a href="javascript:;" class="" id="type_<%=i%>"><%=data.typeNames[i]%></a>
+                <%}%>
+            </div>
+        </div>
+
+        <div class="main">
+            <div id="wrapper">
+                <div id="scroller">
+                    <div class="total-tip">
+                        <p>共找到<span class="highlight"><%=data.numFound%></span>个视频
+                            <span class="filter-tag"><i class="filter-tag-img"></i><%=data.typeNames%></span>
+                        </p>
+                    </div>
+                    <ul class="search-list">
+                        <%for(var i in data.videos){%>
+                            <li class="search-li">
+                                <a href="<%=rootPath%>/video/<%=data.videos[i].id%>">
+                                    <div class="list-img">
+                                        <img src="<%=data.videos[i].frontCover%>" onerror="this.src='http://file.v.zjol.com.cn/image/default.png'">
+                                    </div>
+                                    <div class="list-intro">
+                                        <div class="list-title">
+                                            <h2><%-data.videos[i].name%></h2>
+                                        </div>
+                                        <div class="list-info">
+                                            <span class="views">播放: <%=data.videos[i].playTime%></span>
+                                            <span class="time"><%=data.videos[i].createDate.substring(0,10)%></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        <%}%>
+                    </ul>
+                    <div id="pullUp" class="">
+                        <#if (res.numFound > 20)>
+                            <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+                        </#if>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%}%>
+    <div class="history" id="history" style="display:<%if(typeof(status) != 'undefined'){%><%=status%><%}%>">
+        <ul class="history-list">
+
+        </ul>
+    </div>
+</div>
+</body>
+</html>

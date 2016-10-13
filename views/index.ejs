@@ -1,0 +1,303 @@
+<!Doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"
+          name="viewport">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <title>手机视界</title>
+    <link rel='stylesheet' type="text/css" href='<%=rootPath%>/stylesheets/index.css'/>
+    <link rel="stylesheet" type="text/css" href="<%=rootPath%>/stylesheets/swiper.min.css"/>
+</head>
+<body>
+<% include header.ejs %>
+<div id="banner">
+    <div class="swiper-wrapper">
+        <%for(var i in data.indexBanner){ %>
+        <div class="swiper-slide">
+            <a title="<%-data.indexBanner[i].title%>"
+               href="<%if(data.indexBanner[i].url.length>10){%><%=data.indexBanner[i].url%><%}else{%><%=rootPath%>/video/<%=data.indexBanner[i].url%><%}%>">
+                <img src="<%=data.indexBanner[i].cover%>" alt="<%-data.indexBanner[i].title%>"
+                     title="<%=data.indexBanner[i].title%>">
+            </a>
+            <div class="swiper-gradient"></div>
+            <span class="swiper-title"><%-data.indexBanner[i].title%></span>
+        </div>
+
+        <%}%>
+    </div>
+    <div class="pagination"></div>
+</div>
+<div class="main">
+    <div class="boutique">
+        <div class="boutique-title">
+            <span>精品栏目推荐</span>
+            <a class="icon-more" href="#"></a>
+        </div>
+        <div class="boutique-img">
+            <a href="<%if(data.fineColumns[0].url.length>10){%><%=data.fineColumns[0].url%><%}else{%><%=rootPath%>/video/<%=data.fineColumns[0].url%><%}%>"> <img alt="精品栏目推荐" src="<%=data.fineColumns[0].cover%>"/></a>
+        </div>
+    </div>
+
+    <div class="site">
+        <div class="site-title">
+            <i class="i-title blue"></i><span class="news-type">视界新闻</span>
+            <span class="refresh">换一拨</span>
+        </div>
+        <ul class="site-content" id="site_content_1">
+            <%for(var i=0;i<5;i++){%>
+            <li>
+                <a href="<%if(data.topNews[i].url.length>10){%><%=data.topNews[i].url%><%}else{%><%=rootPath%>/video/<%=data.topNews[i].url%><%}%>"><%-data.topNews[i].title%></a>
+            </li>
+            <%}%>
+        </ul>
+        <ul class="site-content hide" id="site_content_2">
+            <%for(var i=5;i<10;i++){%>
+            <li>
+                <a href="<%if(data.topNews[i].url.length>10){%><%=data.topNews[i].url%><%}else{%><%=rootPath%>/video/<%=data.topNews[i].url%><%}%>"><%-data.topNews[i].title%></a>
+            </li>
+            <%}%>
+        </ul>
+    </div>
+
+    <div class="model">
+        <div class="title">
+            <i class="i-title red"></i><span class="news-type">时政新闻</span>
+            <a href="<%=rootPath%>/politics" class="icon-more"></a>
+        </div>
+        <div class="content">
+            <div class="headline">
+                <a href="<%if(data.politicNews[0].url.length>10){%><%=data.politicNews[0].url%><%}else{%><%=rootPath%>/video/<%=data.politicNews[0].url%><%}%>">
+                    <img class="main-img" src="<%=data.politicNews[0].cover%>">
+                    <span class="news-title"><%-data.politicNews[0].title%></span>
+                   <span class="headline-playTime">
+                       <!--<i class="headline-i-playTime"></i>-->
+                       <span class="headline-news-playTime"><%=data.politicNews[0].updateTime.substr(data.politicNews[0].updateTime.length - 5)%></span>
+                   </span>
+                </a>
+            </div>
+            <div class="subline">
+                <a href="<%if(data.politicNews[1].url.length>10){%><%=data.politicNews[1].url%><%}else{%><%=rootPath%>/video/<%=data.politicNews[1].url%><%}%>">
+                    <div class="fl">
+                        <img src="<%=data.politicNews[1].cover%>">
+                    </div>
+                    <div class="subline-width fr">
+                        <span class="subline-title"><%-data.politicNews[1].title%></span>
+                        <span class="subline-playTime">
+                            <!--<i class="sub-i-playTime"></i>-->
+                            <span class="sub-news-playTime"><%=data.politicNews[1].updateTime.substr(data.politicNews[1].updateTime.length - 5)%></span>
+                        </span>
+                    </div>
+                </a>
+            </div>
+            <div class="subline">
+                <a href="<%if(data.politicNews[2].url.length>10){%><%=data.politicNews[2].url%><%}else{%><%=rootPath%>/video/<%=data.politicNews[2].url%><%}%>">
+                    <div class="fl">
+                        <img src="<%=data.politicNews[2].cover%>">
+                    </div>
+                    <div class="subline-width fr">
+                        <span class="subline-title"><%-data.politicNews[2].title%></span>
+                        <span class="subline-playTime">
+                            <!--<i class="sub-i-playTime"></i>-->
+                            <span class="sub-news-playTime"><%=data.politicNews[2].updateTime.substr(data.politicNews[2].updateTime.length - 5)%></span>
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="model">
+        <div class="title">
+            <i class="i-title purple"></i><span class="news-type">原创出品</span>
+            <a href="<%=rootPath%>/original" class="icon-more"></a>
+        </div>
+        <div class="content">
+            <div class="headline">
+                <a href="<%if(data.originalVideos[0].url.length>10){%><%=data.originalVideos[0].url%><%}else{%><%=rootPath%>/video/<%=data.originalVideos[0].url%><%}%>">
+                    <img class="main-img" src="<%=data.originalVideos[0].cover%>">
+                    <span class="news-title"><%-data.originalVideos[0].title%></span>
+                   <span class="headline-playTime">
+                       <!--<i class="headline-i-playTime"></i>-->
+                       <span class="headline-news-playTime"><%=data.originalVideos[0].updateTime.substr(data.originalVideos[0].updateTime.length - 5)%></span>
+                   </span>
+                </a>
+            </div>
+            <div class="subline">
+                <a href="<%if(data.originalVideos[1].url.length>10){%><%=data.originalVideos[1].url%><%}else{%><%=rootPath%>/video/<%=data.originalVideos[1].url%><%}%>">
+                    <div class="fl">
+                        <img src="<%=data.originalVideos[1].cover%>">
+                    </div>
+                    <div class="subline-width fr">
+                        <span class="subline-title"><%-data.originalVideos[1].title%></span>
+                        <span class="subline-playTime">
+                            <!--<i class="sub-i-playTime"></i>-->
+                            <span class="sub-news-playTime"><%=data.originalVideos[1].updateTime.substr(data.originalVideos[1].updateTime.length - 5)%></span>
+                        </span>
+                    </div>
+                </a>
+            </div>
+            <div class="subline">
+                <a href="<%if(data.originalVideos[2].url.length>10){%><%=data.originalVideos[2].url%><%}else{%><%=rootPath%>/video/<%=data.originalVideos[2].url%><%}%>">
+                    <div class="fl">
+                        <img src="<%=data.originalVideos[2].cover%>">
+                    </div>
+                    <div class="subline-width fr">
+                        <span class="subline-title"><%-data.originalVideos[2].title%></span>
+                        <span class="subline-playTime">
+                            <!--<i class="sub-i-playTime"></i>-->
+                            <span class="sub-news-playTime"><%=data.originalVideos[2].updateTime.substr(data.originalVideos[2].updateTime.length - 5)%></span>
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="model">
+        <div class="title">
+            <i class="i-title green"></i><span class="news-type">浙江新闻</span>
+            <a href="http://zjnews.zjol.com.cn/" class="icon-more"></a>
+        </div>
+        <div class="content">
+            <div class="headline">
+                <a href="<%if(data.zjNews[0].url.length>10){%><%=data.zjNews[0].url%><%}else{%><%=rootPath%>/video/<%=data.zjNews[0].url%><%}%>">
+                    <img class="main-img" src="<%=data.zjNews[0].cover%>">
+                    <span class="news-title"><%-data.zjNews[0].title%></span>
+                   <span class="headline-playTime">
+                       <!--<i class="headline-i-playTime"></i>-->
+                       <span class="headline-news-playTime"><%=data.zjNews[0].updateTime.substr(data.zjNews[0].updateTime.length - 5)%></span>
+                   </span>
+                </a>
+            </div>
+            <div class="subline">
+                <a href="<%if(data.zjNews[1].url.length>10){%><%=data.zjNews[1].url%><%}else{%><%=rootPath%>/video/<%=data.zjNews[1].url%><%}%>">
+                    <div class="fl">
+                        <img src="<%=data.zjNews[1].cover%>">
+                    </div>
+                    <div class="subline-width fr">
+                        <span class="subline-title"><%-data.zjNews[1].title%></span>
+                        <span class="subline-playTime">
+                            <!--<i class="sub-i-playTime"></i>-->
+                            <span class="sub-news-playTime"><%=data.zjNews[1].updateTime.substr(data.zjNews[1].updateTime.length - 5)%></span>
+                        </span>
+                    </div>
+                </a>
+            </div>
+            <div class="subline">
+                <a href="<%if(data.zjNews[2].url.length>10){%><%=data.zjNews[2].url%><%}else{%><%=rootPath%>/video/<%=data.zjNews[2].url%><%}%>">
+                    <div class="fl">
+                        <img src="<%=data.zjNews[2].cover%>">
+                    </div>
+                    <div class="subline-width fr">
+                        <span class="subline-title"><%-data.zjNews[2].title%></span>
+                        <span class="subline-playTime">
+                            <!--<i class="sub-i-playTime"></i>-->
+                            <span class="sub-news-playTime"><%=data.zjNews[2].updateTime.substr(data.zjNews[2].updateTime.length - 5)%></span>
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="model">
+        <div class="title">
+            <i class="i-title yellow"></i><span class="news-type">网络热门</span>
+            <a href="#" class="icon-more"></a>
+        </div>
+        <div class="content">
+            <div class="headline">
+                <a href="<%if(data.netNews[0].url.length>10){%><%=data.netNews[0].url%><%}else{%><%=rootPath%>/video/<%=data.netNews[0].url%><%}%>">
+                    <img class="main-img" src="<%=data.netNews[0].cover%>">
+                    <span class="news-title"><%-data.netNews[0].title%></span>
+                   <span class="headline-playTime">
+                       <!--<i class="headline-i-playTime"></i>-->
+                       <span class="headline-news-playTime"><%=data.netNews[0].updateTime.substr(data.netNews[0].updateTime.length - 5)%></span>
+                   </span>
+                </a>
+            </div>
+            <div class="subline">
+                <a href="<%if(data.netNews[1].url.length>10){%><%=data.netNews[1].url%><%}else{%><%=rootPath%>/video/<%=data.netNews[1].url%><%}%>">
+                    <div class="fl">
+                        <img src="<%=data.netNews[1].cover%>">
+                    </div>
+                    <div class="subline-width fr">
+                        <span class="subline-title"><%-data.netNews[1].title%></span>
+                        <span class="subline-playTime">
+                            <!--<i class="sub-i-playTime"></i>-->
+                            <span class="sub-news-playTime"><%=data.netNews[1].updateTime.substr(data.netNews[1].updateTime.length - 5)%></span></span>
+                    </div>
+                </a>
+            </div>
+            <div class="subline">
+                <a href="<%if(data.netNews[2].url.length>10){%><%=data.netNews[2].url%><%}else{%><%=rootPath%>/video/<%=data.netNews[2].url%><%}%>">
+                    <div class="fl">
+                        <img src="<%=data.netNews[2].cover%>">
+                    </div>
+                    <div class="subline-width fr">
+                        <span class="subline-title"><%-data.netNews[2].title%></span>
+                        <span class="subline-playTime">
+                            <!--<i class="sub-i-playTime"></i>-->
+                            <span class="sub-news-playTime"><%=data.netNews[2].updateTime.substr(data.netNews[2].updateTime.length - 5)%></span>
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="black">
+    <div class="main">
+        <div class="other-model">
+            <div class="title">
+                <i class="i-title blue"></i><span class="black-type">热门推荐</span>
+                <a href="#" class="icon-more"></a>
+            </div>
+            <div class="content">
+                <a href="<%if(data.hotRec[0].url.length>10){%><%=data.hotRec[0].url%><%}else{%><%=rootPath%>/video/<%=data.hotRec[0].url%><%}%>">
+                    <img class="main-img" src="<%=data.hotRec[0].cover%>">
+                    <span class="sub-title"><%-data.hotRec[0].title%></span>
+                    <span class="headline-playTime">
+                       <!--<i class="sub-i-playTime"></i>-->
+                        <span class="sub-news-playTime"><%=data.hotRec[0].updateTime%></span>
+                   </span>
+                </a>
+                <div class="sub-recommend">
+                    <%for(var i = 1;i < data.hotRec.length;i++){%>
+                    <a href="<%if(data.hotRec[i].url.length>10){%><%=data.hotRec[i].url%><%}else{%><%=rootPath%>/video/<%=data.hotRec[i].url%><%}%>" class="video-item">
+                        <img src="<%=data.hotRec[i].cover%>" class="sub-video-img">
+                        <!--<span class="sub-video-duration-left">01:55</span>-->
+                        <span class="sub-title sub-video-title"><%-data.hotRec[i].title%></span>
+                        <span class="headline-playTime">
+                            <!--<i class="sub-i-playTime"></i>-->
+                            <span class="sub-news-playTime"><%=data.hotRec[i].updateTime%></span>
+                        </span>
+                    </a>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+
+        <div class="padded-container">
+            <a href="javascript:;" class="show-more-button" id="showMore" style="display:none">
+                <span class="show-more-span">查看更多</span>
+            </a>
+        </div>
+
+        <%include subFoot.ejs%>
+    </div>
+</div>
+<%include footer.ejs%>
+
+</body>
+
+<script type="text/javascript" src="<%=rootPath%>/javascripts/swiper.min.js"></script>
+<script type="text/javascript" src="<%=rootPath%>/javascripts/home.js"></script>
+
+
+</html>
+
+

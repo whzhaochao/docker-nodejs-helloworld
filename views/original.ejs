@@ -1,0 +1,138 @@
+<!Doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>【原创出品】-手机视界(m.v.zjol.com.cn)-浙江免费新闻视频</title>
+    <meta name="keywords" content="原创出品,原创视频,自制视频,手机视界,浙江视界">
+    <meta name="description" content="原创出品是浙江视界手机视界的子频道,主要提供自制原创视频信息">
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"
+          name="viewport">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="apple-mobile-web-app-title" content="手机视界">
+    <link rel='stylesheet' type="text/css" href='<%=rootPath%>/stylesheets/original.css'/>
+    <link rel="stylesheet" type="text/css" href="<%=rootPath%>/stylesheets/swiper.min.css"/>
+    <script type="text/javascript" src="<%=rootPath%>/javascripts/swiper.min.js"></script>
+    <script>
+        window.onload = function () {
+            var mySwiper1 = new Swiper('#banner', {
+                autoplay: 5000,
+                visibilityFullFit: true,
+                loop: true,
+                pagination: '.pagination'
+            });
+        }
+    </script>
+</head>
+<body>
+<% include header.ejs %>
+<div id="banner">
+    <div class="swiper-wrapper">
+        <%for(var i in data.original){ %>
+        <div class="swiper-slide">
+            <a title="<%=data.original[i].title%>" href="<%if(data.original[i].url.length>10){%><%=data.original[i].url%><%}else{%><%=rootPath%>/video/<%=data.original[i].url%><%}%>">
+                <img src="<%=data.original[i].cover%>" alt="<%=data.original[i].title%>"
+                     title="<%=data.original[i].title%>">
+            </a>
+            <div class="swiper-gradient"></div>
+            <span class="swiper-title"><%-data.original[i].title%></span>
+        </div>
+
+        <%}%>
+    </div>
+    <div class="pagination"></div>
+</div>
+<div class="main">
+    <div class="content" id="content">
+        <%for(var i in data.fastNews){ %>
+        <div class="subline">
+            <a href="<%if(data.fastNews[i].url.length>10){%><%=data.fastNews[i].url%><%}else{%><%=rootPath%>/video/<%=data.fastNews[i].url%><%}%>">
+                <div class="fl">
+                    <img src="<%=data.fastNews[i].cover%>">
+                </div>
+                <div class="subline-width fr">
+                    <span class="subline-title"><i class="i-playTime"></i><%-data.fastNews[i].title%></span>
+                    <span class="subline-date"><span
+                            class="news-playTime"><%=data.fastNews[i].updateTime%></span></span>
+                </div>
+            </a>
+        </div>
+        <%}%>
+    </div>
+
+    <!--<div class="padded-container">-->
+        <!--<a href="javascript:;" class="show-more-button original-more-button">-->
+            <!--<span class="show-more-span">查看更多</span>-->
+        <!--</a>-->
+    <!--</div>-->
+
+
+    <div class="boutique">
+        <div class="boutique-title">
+            精品栏目推荐
+        </div>
+        <%for(var i in data.goodColum){ %>
+        <div class="boutique-content">
+            <a href="<%if(data.goodColum[i].url.length>10){%><%=data.goodColum[i].url%><%}else{%><%=rootPath%>/video/<%=data.goodColum[i].url%><%}%>">
+                <div class="boutique-img"><img src="<%=data.goodColum[i].cover%>"></div>
+                <div class="boutique-name"><%-data.goodColum[i].title%></div>
+            </a>
+        </div>
+        <%}%>
+    </div>
+</div>
+
+<div class="black">
+    <div class="main">
+        <div class="other-model">
+            <div class="title">
+                <i class="i-title purple"></i><span class="black-type">热门专题</span>
+            </div>
+            <%for(var i in data.hotSubject){ %>
+            <div class="content">
+                <a href="<%if(data.hotSubject[i].url.length>10){%><%=data.hotSubject[i].url%><%}else{%><%=rootPath%>/video/<%=data.hotSubject[i].url%><%}%>">
+                    <img class="main-img" src="<%=data.hotSubject[i].cover%>">
+                    <span class="sub-title"><%-data.hotSubject[i].title%></span>
+                </a>
+            </div>
+            <%}%>
+        </div>
+
+        <div class="padded-container no-more">
+            <!--<a href="javascript:;" class="show-more-button">-->
+                <!--<span class="show-more-span">查看更多</span>-->
+            <!--</a>-->
+        </div>
+
+        <div class="other-model">
+            <div class="title">
+                <i class="i-title purple"></i><span class="black-type">活动推荐</span>
+            </div>
+            <%for(var i in data.recActivity){ %>
+            <div class="content">
+                <a href="<%if(data.recActivity[i].url.length>10){%><%=data.recActivity[i].url%><%}else{%><%=rootPath%>/video/<%=data.recActivity[i].url%><%}%>">
+                    <img class="main-img" src="<%=data.recActivity[i].cover%>">
+                    <span class="sub-title"><%-data.recActivity[i].title%></span>
+                </a>
+            </div>
+            <%}%>
+        </div>
+
+        <div class="padded-container" >
+            <a href="#" class="show-more-button" style="display:none">
+                <span class="show-more-span">查看更多</span>
+            </a>
+        </div>
+
+        <div class="go-top"><img src='<%=rootPath%>/images/icon/btn_top.png'></div>
+
+        <%include subFoot.ejs%>
+    </div>
+</div>
+<%include footer.ejs%>
+
+</body>
+
+</html>
+
+

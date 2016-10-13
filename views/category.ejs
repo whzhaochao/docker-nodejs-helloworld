@@ -1,0 +1,121 @@
+<!Doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>【热门分类】-手机视界(m.v.zjol.com.cn)-浙江免费新闻视频</title>
+    <meta name="keywords" content="时政,原创,直播访谈,手机视界,浙江视界">
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"
+          name="viewport">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="apple-mobile-web-app-title" content="手机视界">
+    <link rel='stylesheet' type="text/css" href='<%=rootPath%>/stylesheets/category.css'/>
+    <script>
+        window.onload = function(){
+            var pathname = window.location.pathname;
+            var type = pathname.substring(pathname.lastIndexOf('/') + 1);
+            var head_nav = document.getElementById("head_nav");
+            head_nav.scrollLeft = 50;
+            var sub_nav = document.getElementById("sub_nav");
+            switch(type){
+                case "3":
+                    sub_nav.scrollLeft = 60;
+                    break;
+                case "4":
+                    sub_nav.scrollLeft = 160;
+                    break;
+                case "5":
+                    sub_nav.scrollLeft = 240;
+                    break;
+                case "6":
+                    sub_nav.scrollLeft = 320;
+                    break;
+                case "7":
+                    sub_nav.scrollLeft = 400;
+                    break;
+                case "8":
+                    sub_nav.scrollLeft = 480;
+                    break;
+                case "9":
+                    sub_nav.scrollLeft = 560;
+                    break;
+                case "10":
+                    sub_nav.scrollLeft = 620;
+                    break;
+                case "11":
+                    sub_nav.scrollLeft = 620;
+                    break;
+                case "12":
+                    sub_nav.scrollLeft = 620;
+                    break;
+                default:
+                    break;
+            }
+        }
+    </script>
+</head>
+
+<body>
+<% include header.ejs %>
+<div class="nav-nav-wrap" id="sub_nav">
+    <ul class="subsection-nav-nav" >
+        <li><a href="<%=rootPath%>/category/0" title="时政" class="<%if(typeof(category_0) != 'undefined'){%><%=category_0%><%}%>">时政</a></li>
+        <li><a href="<%=rootPath%>/category/1" title="新闻" class="<%if(typeof(category_1) != 'undefined'){%><%=category_1%><%}%>">新闻</a></li>
+        <li><a href="<%=rootPath%>/category/2" title="原创" class="<%if(typeof(category_2) != 'undefined'){%><%=category_2%><%}%>">原创</a></li>
+        <li><a href="<%=rootPath%>/category/3" title="直播访谈" class="<%if(typeof(category_3) != 'undefined'){%><%=category_3%><%}%>">直播访谈</a></li>
+        <li><a href="<%=rootPath%>/category/4" title="娱乐" class="<%if(typeof(category_4) != 'undefined'){%><%=category_4%><%}%>">娱乐</a></li>
+        <li><a href="<%=rootPath%>/category/5" title="体育" class="<%if(typeof(category_5) != 'undefined'){%><%=category_5%><%}%>">体育</a></li>
+        <li><a href="<%=rootPath%>/category/6" title="旅游" class="<%if(typeof(category_6) != 'undefined'){%><%=category_6%><%}%>">旅游</a></li>
+        <li><a href="<%=rootPath%>/category/7" title="教育" class="<%if(typeof(category_7) != 'undefined'){%><%=category_7%><%}%>">教育</a></li>
+        <li><a href="<%=rootPath%>/category/8" title="生活" class="<%if(typeof(category_8) != 'undefined'){%><%=category_8%><%}%>">生活</a></li>
+        <li><a href="<%=rootPath%>/category/9" title="财经" class="<%if(typeof(category_9) != 'undefined'){%><%=category_9%><%}%>">财经</a></li>
+        <li><a href="<%=rootPath%>/category/10" title="科技" class="<%if(typeof(category_10) != 'undefined'){%><%=category_10%><%}%>">科技</a></li>
+        <li><a href="<%=rootPath%>/category/11" title="房产" class="<%if(typeof(category_11) != 'undefined'){%><%=category_11%><%}%>">房产</a></li>
+        <li><a href="<%=rootPath%>/category/12" title="汽车" class="<%if(typeof(category_12) != 'undefined'){%><%=category_12%><%}%>">汽车</a></li>
+    </ul>
+</div>
+<div id="banner">
+    <a title="<%=data[0].title%>" href="<%=rootPath%>/video/<%=data[0].id%>">
+        <img src="<%=data[0].cover%>" alt="<%=data[0].title%>" title="<%=data[0].title%>">
+    </a>
+    <span class="banner-title"><%-data[0].title%></span>
+</div>
+<div class="main">
+    <div class="content" id="content">
+        <%for(var i =1;i < data.length;i++){%>
+        <div class="subline">
+            <a href="<%=rootPath%>/video/<%=data[i].id%>">
+                <div class="fl">
+                    <img src="<%=data[i].cover%>">
+                </div>
+                <div class="subline-width fr">
+                    <span class="subline-title"><i class="i-playTime"></i><%-data[i].title%></span>
+                    <span class="subline-date"><span
+                            class="news-playTime"><%=data[i].updateTime%></span></span>
+                </div>
+            </a>
+        </div>
+        <%}%>
+    </div>
+
+    <div class="padded-container">
+        <a onclick="moreCategory('<%=type%>')" class="show-more-button">
+            <span class="show-more-span">查看更多</span>
+        </a>
+    </div>
+
+    <%include subFoot.ejs%>
+</div>
+
+<div class="footer-1">
+    <div class="pd-1">
+        <p><img src="<%=rootPath%>/images/icon/computer-black.png">电脑版</p>
+        <p>Copyright © 1999-2016 Zjol. All Rights Reserved</p>
+        <p>浙江在线版权所有</p>
+    </div>
+</div>
+</body>
+
+</html>
+
+
